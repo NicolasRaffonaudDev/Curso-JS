@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+}
+
 h1 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 4rem;
 }
 
 .carousel-inner {
     max-height: 50rem;
+}
+
+.card-h {
+    max-height: 10rem;    
 }
