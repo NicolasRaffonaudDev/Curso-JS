@@ -34,7 +34,7 @@ login();
 
 let componentes = parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
 
-for(i=0; i <= componentes; i++){
+for(i=1; i <= componentes; i++){
     console.log("Componentes sumados al carrito: " + i)
 }
 
