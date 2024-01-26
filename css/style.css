@@ -2,6 +2,9 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
+    background-image: url(../img/fondo-js3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
@@ -15,4 +18,12 @@ h1 {
 
 .card-h {
     max-height: 10rem;    
+}
+
+.banner-copy {
+    background-image: url(../img/banner-js-footer.jpg);
+}
+
+.banner-copy h3 {
+    font-size: 3rem;
 }

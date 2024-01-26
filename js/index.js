@@ -1,17 +1,34 @@
-/* funcion para logearse */
-
-function login(user, password){
+/* bucle para logearse */
+/* let confirmacion
+do{
+    let user = prompt("Ingrese su nombre de usuario");
+    let password = prompt("Ingrese su contraseña");
     if(user && password.length >= 8){
         console.log("Ingreso Valido");
     } else {
+        confirmacion = "no";
         alert("Ingreso no valido, recuerde que su contraseña debe contener al menos 8 caracteres");
-    }
+    }  
+}while(confirmacion === "no");  */
+
+/* funcion para logearse */
+
+let confirmacion
+function login(){
+    do{
+        let user = prompt("Ingrese su nombre de usuario");
+        let password = prompt("Ingrese su contraseña");
+        if(user && password.length >= 8){
+            confirmacion = "si";
+            console.log("Ingreso Valido");
+        } else {
+            confirmacion = "no";
+            alert("Ingreso no valido, recuerde que su contraseña debe contener al menos 8 caracteres");
+        }
+    }while(confirmacion === "no");
 }
 
-let user = prompt("Ingrese su nombre de usuario");
-let password = prompt("Ingrese su contraseña");
-login(user, password);
-
+login();
 
 /* bucle para sumar componentes comprados */
 
@@ -20,6 +37,8 @@ let componentes = parseInt(prompt("Ingrese la cantidad de componentes que quiere
 for(i=0; i <= componentes; i++){
     console.log("Componentes sumados al carrito: " + i)
 }
+
+/* funcion para comprar componentes */
 
 function compra(producto, cantidad){
     if(producto === "cpu"){
