@@ -1,6 +1,6 @@
 /* funcion para logearse */
 
-let confirmacion
+/* let confirmacion
 function login(){
     do{
         let user = prompt("Ingrese su nombre de usuario");
@@ -15,19 +15,19 @@ function login(){
     }while(confirmacion === "no");
 }
 
-login();
+login(); */
 
 /* bucle para sumar componentes comprados */
 
-let componentes = parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
+/* let componentes = parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
 
 for(i=1; i <= componentes; i++){
     console.log("Componentes sumados al carrito: " + i)
-}
+} */
 
 /* funcion para comprar componentes */
 
-function compra(producto, cantidad){
+/* function compra(producto, cantidad){
     if(producto === "cpu"){
         precio = 150000;
         precioTotal = precio * cantidad;
@@ -47,19 +47,20 @@ function compra(producto, cantidad){
 
 let producto = prompt("Elija un producto (CPU, Motherboard, GPU)").toLowerCase();
 let cantidad = parseInt(prompt("Ingrese la cantidad que quiere comprar"));
-compra(producto, cantidad)
+compra(producto, cantidad) */
 
 /* AGREGANDO OBJETOS */
 
 function ComponentesPc(lista, motherboard, cpu, gpu, ram, disco, fuente, gabinete){
-    this.lista = lista
-    this.motherboard = motherboard
-    this.cpu = cpu
-    this.gpu = gpu
-    this.ram = ram
-    this.disco = disco
-    this.fuente = fuente
-    this.gabinete = gabinete
+    /* this.informe = function(){console.log("Hola, soy la PC MASTER RAZE y tengo estos componentes: ")}; */
+    this.lista = lista;
+    this.motherboard = motherboard;
+    this.cpu = cpu;
+    this.gpu = gpu;
+    this.ram = ram;
+    this.disco = disco;
+    this.fuente = fuente;
+    this.gabinete = gabinete;
 }
 
 const PC_UNO = new ComponentesPc(1, "Asus-Prime", "Ryzen-5-5600", "AMD-RX-560", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair")
@@ -78,3 +79,33 @@ console.log(PC_CINCO);
 console.log(PC_SEIS);
 console.log(PC_SIETE); */
 
+function compraPc(numero){
+    switch(numero){
+        case 1:
+            return PC_UNO;
+            break;
+        case 2:
+            return PC_DOS;
+            break;
+        case 3:
+            return PC_TRES;
+            break;
+        case 4:
+            return PC_CUATRO;
+            break;
+        case 5:
+            return PC_CINCO;
+            break;
+        case 6:
+            return PC_SEIS;
+            break;
+        case 7:
+            return PC_SIETE;
+            break;
+    }
+}
+
+let numero = parseFloat(prompt("Ingrese el numero de PC que le interesa y le mostraremos sus componentes"));
+compraPc(numero);
+console.log("Felicitaciones, la computadora que usted eligio trae los siguientes componentes: ");
+console.log(compraPc(numero));
