@@ -49,9 +49,12 @@ let producto = prompt("Elija un producto (CPU, Motherboard, GPU)").toLowerCase()
 let cantidad = parseInt(prompt("Ingrese la cantidad que quiere comprar"));
 compra(producto, cantidad) */
 
+/* SEGUNDA PRE-ENTREGA */
+
+
 /* AGREGANDO OBJETOS */
 
-function ComponentesPc(lista, motherboard, cpu, gpu, ram, disco, fuente, gabinete){
+function ComponentesPc(lista, motherboard, cpu, gpu, ram, disco, fuente, gabinete, stock){
     /* this.informe = function(){console.log("Hola, soy la PC MASTER RAZE y tengo estos componentes: ")}; */
     this.lista = lista;
     this.motherboard = motherboard;
@@ -61,15 +64,16 @@ function ComponentesPc(lista, motherboard, cpu, gpu, ram, disco, fuente, gabinet
     this.disco = disco;
     this.fuente = fuente;
     this.gabinete = gabinete;
+    this.stock = stock;
 }
 
-const PC_UNO = new ComponentesPc(1, "Asus-Prime", "Ryzen-5-5600", "AMD-RX-560", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair")
-const PC_DOS = new ComponentesPc(2, "Asus-Prime", "Intel-I5", "1060TI", "Corsair2x8", "SSD256GB", "Seasonic", "Corsair")
-const PC_TRES = new ComponentesPc(3, "Asus-Prime", "Ryzen-3-3600", "AMD-RX-5500", "Corsair2x8", "SSD256GB", "Seasonic", "Corsair")
-const PC_CUATRO= new ComponentesPc(4, "Asus-Prime", "Intel-I7", "RTX-2080", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair")
-const PC_CINCO = new ComponentesPc(5, "Asus-Prime", "Ryzen-7-7800x", "RX-6600", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair")
-const PC_SEIS = new ComponentesPc(6, "Asus-Prime", "Intel-I9", "RTX-3090","Corsair2x32", "SSD1B", "Seasonic", "Corsair")
-const PC_SIETE = new ComponentesPc(7, "Asus-Prime", "Ryzen-9-9700x", "AMD-RX-7900", "Corsair2x32", "SSD1TB", "Seasonic", "Corsair")
+const PC_UNO = new ComponentesPc(1, "Asus-Prime", "Ryzen-5-5600", "AMD-RX-560", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair", true)
+const PC_DOS = new ComponentesPc(2, "Asus-Prime", "Intel-I5", "1060TI", "Corsair2x8", "SSD256GB", "Seasonic", "Corsair", true)
+const PC_TRES = new ComponentesPc(3, "Asus-Prime", "Ryzen-3-3600", "AMD-RX-5500", "Corsair2x8", "SSD256GB", "Seasonic", "Corsair", false)
+const PC_CUATRO = new ComponentesPc(4, "Asus-Prime", "Intel-I7", "RTX-2080", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair", false)
+const PC_CINCO = new ComponentesPc(5, "Asus-Prime", "Ryzen-7-7800x", "RX-6600", "Corsair2x16", "SSD512GB", "Seasonic", "Corsair", false)
+const PC_SEIS = new ComponentesPc(6, "Asus-Prime", "Intel-I9", "RTX-3090","Corsair2x32", "SSD1B", "Seasonic", "Corsair", true)
+const PC_SIETE = new ComponentesPc(7, "Asus-Prime", "Ryzen-9-9700x", "AMD-RX-7900", "Corsair2x32", "SSD1TB", "Seasonic", "Corsair", true)
 
 /* console.log(PC_UNO);
 console.log(PC_DOS);
@@ -109,3 +113,38 @@ let numero = parseFloat(prompt("Ingrese el numero de PC que le interesa y le mos
 compraPc(numero);
 console.log("Felicitaciones, la computadora que usted eligio trae los siguientes componentes: ");
 console.log(compraPc(numero));
+
+
+const PC = [
+    {
+        id: 1,
+        stock: true
+    },
+    {
+        id: 2,
+        stock: false
+    },
+    {
+        id: 3,
+        stock: false
+    },
+    {
+        id: 4,
+        stock: true
+    },
+    {
+        id: 5,
+        stock: true
+    },
+    {
+        id: 6,
+        stock: false
+    },
+    {
+        id: 7,
+        stock: true
+    }
+];
+
+const PC_STOCK = PC.filter(item => item.stock);
+console.log("En stock = ", PC_STOCK)
