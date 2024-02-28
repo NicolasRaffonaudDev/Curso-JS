@@ -148,3 +148,70 @@ const PC = [
 
 const PC_STOCK = PC.filter(item => item.stock);
 console.log("En stock = ", PC_STOCK)
+
+//TERCERA PRE-ENTREGA
+
+const btn = document.getElementById("btn");
+
+btn.addEventListener('click', function(){
+    alert('Se esta ejecutando el evento')
+})
+
+const cambiarColor = document.getElementById("cambiarColor");
+
+cambiarColor.addEventListener('click', function(){
+    document.body.style.background = 'none';
+})
+
+const btnNodo = document.getElementById("btnNodo");
+
+btnNodo.addEventListener('click', function(){
+    alert('se esta ejecuntando el evento a traves del nodo')
+})
+
+let menuBoton = document.getElementById("menuBoton");
+let menu = document.getElementById("menu");
+
+menuBoton.addEventListener('click', function(){
+    menu.style.display = (menu.style.display === 'block')? 'none' : 'block';
+})
+
+function jsEnHTML(){
+    alert("Se esta ejecutando por HTML");
+}
+
+//eventos con raton
+
+const caja = document.getElementById("caja");
+
+caja.onmouseover = ()=>{
+    console.log("ingreso el mouse");
+}
+
+caja.addEventListener('mouseout', function(){
+    console.log("el mouse esta fuera")
+})
+
+const despliegue = document.getElementById("despliegue");
+
+despliegue.addEventListener('mouseover', function(){
+    alert("pasaste por encima");
+})
+
+caja.onmousedown = function(){
+    console.log("deja orpimido el mouse")
+}
+
+caja.onmouseup = function(){
+    console.log("suelta el mouse")
+}
+
+let exampleFormControlInput1 = document.getElementById("exampleFormControlInput1"),
+
+exampleFormControlInput1.addEventListener('input', function(){
+    if(!this.validity.valid){
+        emailError.style.display = 'block';
+    } else {
+        emailError.style.display = 'none';
+    }
+})
