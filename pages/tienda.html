@@ -38,6 +38,20 @@
           </nav>
     </header>
     <main>
+      <section>
+        <div class="container-carritoDeCompras">
+          <h1>Elija sus productos:</h1>
+          <div id="productos-tienda"></div>
+          <div id="carrito-tienda" class="carrito-compras">
+            <h2>Carro de compras</h2>
+            <ul id="elementos-carrito"></ul>
+          </div>
+          <button id="confirmar-compra">Termine su compra</button>
+          <p>Total de compra: <span id="totalCompra">0</span></p>
+        </div>
+      </section>
+    </main>
+    <main>
         <button class="btn" id="btn">COMPRAR</button>
         <button id="cambiarColor">CAMBIAR COLOR</button>
         <button id="btnNodo">NODO</button>
@@ -57,7 +71,7 @@
         </div>
     </main>
     <footer>
-      <form action="" id="formDeRegistro">
+      <form id="formDeRegistro">
         <label for="nombre">Ingrese su nombre:</label>
         <input type="text" id="nombre" required>
         <label for="email">Correo electronico:</label>

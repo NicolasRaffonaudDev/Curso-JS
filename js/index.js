@@ -183,7 +183,7 @@ function jsEnHTML(){
 
 //eventos con raton
 
-const caja = document.getElementById("caja");
+/* const caja = document.getElementById("caja");
 
 caja.onmouseover = ()=>{
     console.log("ingreso el mouse");
@@ -216,7 +216,7 @@ exampleFormControlInput1.addEventListener('input', function(){
         emailError.style.display = 'none';
     }
 })
-
+*/
 // FORMULARIO 
 
 let nombreInput = document.getElementById("nombre");
@@ -234,7 +234,7 @@ emailInput.addEventListener('input', function(){
 
 let formDeRegistro = document.getElementById("formDeRegistro");
 
-formDeRegristro.addEventListener("submit", function(event){
+formDeRegistro.addEventListener("submit", function(event){
     if(!nombreInput.validity.valid || !emailInput.validity.valid || !mensajeInput.validity.valid){
         if(!nombreInput.validity.valid){
             alert("Hay un error al ingresar su nombre");
@@ -248,6 +248,55 @@ formDeRegristro.addEventListener("submit", function(event){
         }
         event.preventDefault();
     } else{
-        alert("Gracias por dejarnos tu mensaje, te contactamos a la brevedad")
+        alert("Gracias por dejarnos tu mensaje, te contactamos a la brevedad");
     }
-});
+}); 
+
+
+//CARRITO DE COMPRAS PARA NUESTRO PROYECTO
+
+const productos = [
+    {id:1, nombre:"ryzen-3-3200g", precio:99000,},
+    {id:2, nombre:"ryzen-5-3600", precio:149000},
+    {id:3, nombre:"intelCore-i5-10400F", precio:136900},
+    {id:4, nombre:"intelCore-i7-12700F", precio:381900},
+    {id:5, nombre:"ryzen-7-7700", precio:379000},
+    {id:6, nombre:"ryzen-7-7700x", precio:425000}
+]
+
+const ELEMENTOS_CARRITO = [];
+const contenedorProducto = document.getElementById('productos-tienda');
+const CONTENEDOR_ELEMENTOS_CARRITO = document.getElementById('elementos-carrito');
+const TOTAL_SPAN = document.getElementById('totalCompra');
+
+function renderProducto(){
+    productos.forEach(producto =>{
+        const div = document.createElement('div');
+        div.classList.add('producto');
+        div.innerHTML = `
+        <h3>${producto.nombre}</h3>
+        <p>${producto.precio}</p>
+        <button class="boton__compra-carrito data-id="${producto.id}">agregar al carrito</button>      
+        `;
+        contenedorProducto.appendChild(div);
+    })
+}
+
+renderProducto();
+
+//AGREGAR PRODUCTOS AL CARRITO
+
+function sumarCarrito(idProducto){
+    const ITEM_EXISTENTE = ELEMENTOS_CARRITO.find(item => item.id === idProducto);
+    if(ITEM_EXISTENTE){
+        ITEM_EXISTENTE.cantidad++;
+    } else{
+        const PRODUCTO = PRODUCTOS.find(p => p.id === idProducto);
+        if(PRODUCTO){
+            ELEMENTOS_CARRITO.push({...PRODUCTO, cantidad:1})
+        }
+    } 
+    renderCarrito();
+}
+
+renderProducto()

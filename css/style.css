@@ -37,3 +37,13 @@ h1 {
     height: 300px;
     border: solid 1px black;
 }
+
+/* carrito de compras */
+
+.container-carritoDeCompras {
+    width: 50rem;
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+    background-color: lightblue;
+    border-radius: .5rem;
+}
