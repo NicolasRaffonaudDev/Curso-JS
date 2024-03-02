@@ -149,7 +149,8 @@ const PC = [
 const PC_STOCK = PC.filter(item => item.stock);
 console.log("En stock = ", PC_STOCK)
 
-//TERCERA PRE-ENTREGA
+//TERCERA PRE-ENTREGA 
+//TRABAJO SOBRE TIENDA.HTML
 
 const btn = document.getElementById("btn");
 
@@ -206,7 +207,7 @@ caja.onmouseup = function(){
     console.log("suelta el mouse")
 }
 
-let exampleFormControlInput1 = document.getElementById("exampleFormControlInput1"),
+let exampleFormControlInput1 = document.getElementById("exampleFormControlInput1");
 
 exampleFormControlInput1.addEventListener('input', function(){
     if(!this.validity.valid){
@@ -215,3 +216,38 @@ exampleFormControlInput1.addEventListener('input', function(){
         emailError.style.display = 'none';
     }
 })
+
+// FORMULARIO 
+
+let nombreInput = document.getElementById("nombre");
+let emailInput = document.getElementById("email");
+let mensajeInput = document.getElementById("mensaje");
+let emailError = document.getElementById("emailError");
+
+emailInput.addEventListener('input', function(){
+    if(!this.validity.valid){
+        emailError.style.display = 'block';
+    } else {
+        emailError.style.display = 'none'
+    }
+})
+
+let formDeRegistro = document.getElementById("formDeRegistro");
+
+formDeRegristro.addEventListener("submit", function(event){
+    if(!nombreInput.validity.valid || !emailInput.validity.valid || !mensajeInput.validity.valid){
+        if(!nombreInput.validity.valid){
+            alert("Hay un error al ingresar su nombre");
+        }
+        if(!emailInput.validity.valid){
+            emailError.style.display = "block";
+            alert("Hay un error al ingresar su Email");
+        }
+        if(!mensajeInput.validity.valid){
+            alert("Escribanos todo lo que necesite, gracias");
+        }
+        event.preventDefault();
+    } else{
+        alert("Gracias por dejarnos tu mensaje, te contactamos a la brevedad")
+    }
+});
