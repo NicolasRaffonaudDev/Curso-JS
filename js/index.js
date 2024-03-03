@@ -255,7 +255,7 @@ formDeRegistro.addEventListener("submit", function(event){
 
 //CARRITO DE COMPRAS PARA NUESTRO PROYECTO
 
-const productos = [
+const PRODUCTOS = [
     {id:1, nombre:"ryzen-3-3200g", precio:99000,},
     {id:2, nombre:"ryzen-5-3600", precio:149000},
     {id:3, nombre:"intelCore-i5-10400F", precio:136900},
@@ -265,24 +265,22 @@ const productos = [
 ]
 
 const ELEMENTOS_CARRITO = [];
-const contenedorProducto = document.getElementById('productos-tienda');
+const CONTENEDOR_PRODUCTOS = document.getElementById('productos-tienda');
 const CONTENEDOR_ELEMENTOS_CARRITO = document.getElementById('elementos-carrito');
 const TOTAL_SPAN = document.getElementById('totalCompra');
 
 function renderProducto(){
-    productos.forEach(producto =>{
-        const div = document.createElement('div');
-        div.classList.add('producto');
-        div.innerHTML = `
+    PRODUCTOS.forEach(producto =>{
+        const DIV = document.createElement('div');
+        DIV.classList.add('producto');
+        DIV.innerHTML = `
         <h3>${producto.nombre}</h3>
-        <p>${producto.precio}</p>
+        <p>$${producto.precio}</p>
         <button class="boton__compra-carrito data-id="${producto.id}">agregar al carrito</button>      
         `;
-        contenedorProducto.appendChild(div);
+        CONTENEDOR_PRODUCTOS.appendChild(DIV);
     })
 }
-
-renderProducto();
 
 //AGREGAR PRODUCTOS AL CARRITO
 
@@ -298,5 +296,46 @@ function sumarCarrito(idProducto){
     } 
     renderCarrito();
 }
+
+// FUNCION PARA ELIMINAR PRODUCTOS DEL CARRITO
+
+function eliminarDelCarrito(idProducto){
+    const INDICE = ELEMENTOS_CARRITO.findIndex(item => item.id === idProducto);
+    if(INDICE !== -1){
+        ELEMENTOS_CARRITO.splice(INDICE, 1);
+        renderCarrito();
+    }
+}
+
+function renderCarrito(){
+    CONTENEDOR_ELEMENTOS_CARRITO.innerHTML = '';
+    let precioTotal = 0;
+    ELEMENTOS_CARRITO.forEach(item =>{
+        const LI = document.createElement('li');
+        LI.textContent = `${item.nombre} x ${item.cantidad} - $${item.precio * item.cantidad}`
+        const BTN_ELIMINAR = document.createElement('button');
+        BTN_ELIMINAR.textContent = 'Eliminar';
+        BTN_ELIMINAR.addEventListener('click', ()=>eliminarDelCarrito(item.id));
+        LI.appendChild(BTN_ELIMINAR);
+        CONTENEDOR_ELEMENTOS_CARRITO.appendChild(LI);
+        precioTotal =+ item.precio * item.cantidad;
+    })
+    TOTAL_SPAN.textContent = precioTotal;
+}
+
+function realizarCompra(){
+    alert(`Compra Finalizada ${TOTAL_SPAN.textContent}`);
+    ELEMENTOS_CARRITO.length = 0
+    renderCarrito()
+}
+
+document.getElementById('confirmar-compra').addEventListener('click', realizarCompra);
+
+CONTENEDOR_PRODUCTOS.addEventListener('click', function(evento){
+    if(evento.target.classList.contains('boton__compra-carrito')){
+        const ID_PRODUCTO = parseInt(evento.target.getAttribute('data-id'));
+        sumarCarrito(ID_PRODUCTO);
+    }
+})
 
 renderProducto()
