@@ -276,7 +276,7 @@ function renderProducto(){
         DIV.innerHTML = `
         <h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
-        <button class="boton__compra-carrito data-id="${producto.id}">agregar al carrito</button>      
+        <button class="boton__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
         `;
         CONTENEDOR_PRODUCTOS.appendChild(DIV);
     })
@@ -339,3 +339,76 @@ CONTENEDOR_PRODUCTOS.addEventListener('click', function(evento){
 })
 
 renderProducto()
+
+// CARRITO FINALIZA
+
+//APLICANDO localStorage y sessionStorage
+
+localStorage.setItem("nombre", "nicolas");
+localStorage.setItem("edad", 28);
+localStorage.setItem("condicion", false);
+
+let nicolas = localStorage.getItem("edad");
+console.log(nicolas);
+
+// MODO OSCURO
+
+const modo = document.getElementById('modo');
+
+modo.addEventListener("click", ()=>{
+    document.body.classList.toggle("dark");
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("modo", "dark");
+    } else {
+        localStorage.setItem("modo", "claro");
+    }
+})
+
+const CAJA_MODO = localStorage.getItem("modo");
+
+if(CAJA_MODO === "dark"){
+    document.body.classList.add("dark");
+} else {
+    document.body.classList.remove("dark");
+}
+
+// APLICANDO JSON STRINGIFY
+
+const PRODUCTOS_JSON = JSON.stringify(PRODUCTOS);
+
+/* localStorage.setItem("productos", PRODUCTOS); */
+
+localStorage.setItem("productos", PRODUCTOS_JSON);
+
+const EJEMPLO = localStorage.getItem("productos");
+console.log(EJEMPLO);
+
+// APLICO PARSE
+
+const EJEMPLO_PASADO = JSON.parse(EJEMPLO);
+console.log(EJEMPLO_PASADO);
+
+// PRACTICO EL LOGIN
+
+const LOGEANDO = document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    let usuario = document.getElementById('user').value;
+    let password = document.getElementById('password').value;
+
+    if(usuario === 'nicolas' && password === 'atlantida'){
+        localStorage.setItem('logeoCorrecto', true);
+
+        window.location.href = 'login.html';
+    }else {
+        document.getElementById('messageLogin').innerText = 'Datos Incorrectos';
+    }
+})
+
+// COMPROBACION
+
+window.addEventListener('load', function(){
+    if(localStorage.getItem('logeoCorrecto')){
+        this.window.location.href = 'login.html';
+    }
+})
