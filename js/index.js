@@ -1,33 +1,14 @@
-/* funcion para logearse */
-
-/* let confirmacion
-function login(){
-    do{
-        let user = prompt("Ingrese su nombre de usuario");
-        let password = prompt("Ingrese su contraseña");
-        if(user && password.length >= 8){
-            confirmacion = "si";
-            console.log("Ingreso Valido");
-        } else {
-            confirmacion = "no";
-            alert("Ingreso no valido, recuerde que su contraseña debe contener al menos 8 caracteres");
-        }
-    }while(confirmacion === "no");
-}
-
-login(); */
-
 /* bucle para sumar componentes comprados */
 
-/* let componentes = parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
+let componentes = 1; //parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
 
 for(i=1; i <= componentes; i++){
     console.log("Componentes sumados al carrito: " + i)
-} */
+} 
 
 /* funcion para comprar componentes */
 
-/* function compra(producto, cantidad){
+function compra(producto, cantidad){
     if(producto === "cpu"){
         precio = 150000;
         precioTotal = precio * cantidad;
@@ -45,9 +26,9 @@ for(i=1; i <= componentes; i++){
     }
 }
 
-let producto = prompt("Elija un producto (CPU, Motherboard, GPU)").toLowerCase();
-let cantidad = parseInt(prompt("Ingrese la cantidad que quiere comprar"));
-compra(producto, cantidad) */
+let producto = 0; //prompt("Elija un producto (CPU, Motherboard, GPU)").toLowerCase();
+let cantidad = 0; //parseInt(prompt("Ingrese la cantidad que quiere comprar"));
+compra(producto, cantidad) 
 
 /* SEGUNDA PRE-ENTREGA */
 
@@ -75,14 +56,6 @@ const PC_CINCO = new ComponentesPc(5, "Asus-Prime", "Ryzen-7-7800x", "RX-6600", 
 const PC_SEIS = new ComponentesPc(6, "Asus-Prime", "Intel-I9", "RTX-3090","Corsair2x32", "SSD1B", "Seasonic", "Corsair", true)
 const PC_SIETE = new ComponentesPc(7, "Asus-Prime", "Ryzen-9-9700x", "AMD-RX-7900", "Corsair2x32", "SSD1TB", "Seasonic", "Corsair", true)
 
-/* console.log(PC_UNO);
-console.log(PC_DOS);
-console.log(PC_TRES);
-console.log(PC_CUATRO);
-console.log(PC_CINCO);
-console.log(PC_SEIS);
-console.log(PC_SIETE); */
-
 function compraPc(numero){
     switch(numero){
         case 1:
@@ -109,11 +82,13 @@ function compraPc(numero){
     }
 }
 
-let numero = parseFloat(prompt("Ingrese el numero de PC que le interesa y le mostraremos sus componentes"));
+// POP UP PARA PREGUNTAR Y MOSTRAR CANTIDAD DE COMPONENTES
+
+/* let numero = parseFloat(prompt("Ingrese el numero de PC que le interesa y le mostraremos sus componentes"));
 compraPc(numero);
 console.log("Felicitaciones, la computadora que usted eligio trae los siguientes componentes: ");
 console.log(compraPc(numero));
-
+ */
 
 const PC = [
     {
@@ -181,42 +156,6 @@ function jsEnHTML(){
     alert("Se esta ejecutando por HTML");
 }
 
-//eventos con raton
-
-/* const caja = document.getElementById("caja");
-
-caja.onmouseover = ()=>{
-    console.log("ingreso el mouse");
-}
-
-caja.addEventListener('mouseout', function(){
-    console.log("el mouse esta fuera")
-})
-
-const despliegue = document.getElementById("despliegue");
-
-despliegue.addEventListener('mouseover', function(){
-    alert("pasaste por encima");
-})
-
-caja.onmousedown = function(){
-    console.log("deja orpimido el mouse")
-}
-
-caja.onmouseup = function(){
-    console.log("suelta el mouse")
-}
-
-let exampleFormControlInput1 = document.getElementById("exampleFormControlInput1");
-
-exampleFormControlInput1.addEventListener('input', function(){
-    if(!this.validity.valid){
-        emailError.style.display = 'block';
-    } else {
-        emailError.style.display = 'none';
-    }
-})
-*/
 // FORMULARIO 
 
 let nombreInput = document.getElementById("nombre");

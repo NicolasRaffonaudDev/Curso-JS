@@ -39,11 +39,11 @@ h1 {
 }
 
 .claro {
-    background-color: white;
+    background-color: rgb(214, 214, 51);
 }
 
 .dark {
-    background-color: black;
+    background-color: rgb(16, 16, 131);
 }
 
 /* carrito de compras */
