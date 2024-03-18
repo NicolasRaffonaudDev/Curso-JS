@@ -215,7 +215,7 @@ function renderProducto(){
         DIV.innerHTML = `
         <h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
-        <button class="boton__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
+        <button class="boton__compra-carrito" id="btn__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
         `;
         CONTENEDOR_PRODUCTOS.appendChild(DIV);
     })
@@ -253,6 +253,8 @@ function renderCarrito(){
         const LI = document.createElement('li');
         LI.textContent = `${item.nombre} x ${item.cantidad} - $${item.precio * item.cantidad}`
         const BTN_ELIMINAR = document.createElement('button');
+        //agregar toastify cuando se eliminar producto metiendo un class o id
+        BTN_ELIMINAR.
         BTN_ELIMINAR.textContent = 'Eliminar';
         BTN_ELIMINAR.addEventListener('click', ()=>eliminarDelCarrito(item.id));
         LI.appendChild(BTN_ELIMINAR);
@@ -267,6 +269,8 @@ function renderCarrito(){
     ELEMENTOS_CARRITO.length = 0
     renderCarrito()
 } */
+
+// USO DE SWEET ALERT . LIBRERIAS
 
 document.getElementById('confirmar-compra').addEventListener('click', ()=>{
     Swal.fire({
@@ -299,6 +303,22 @@ CONTENEDOR_PRODUCTOS.addEventListener('click', function(evento){
 })
 
 renderProducto()
+
+// USO DE TOASTIFY
+
+const TOASTIFY = document.getElementById('btn__compra-carrito');
+
+TOASTIFY.addEventListener('click', ()=>{
+    Toastify({
+        text: "Producto agregado al carrito",
+        duration: 2000,
+        position: "right",
+        gravity: "top",
+        style:{
+            background: "green",
+        },
+    }).showToast()
+})
 
 // CARRITO FINALIZA
 
