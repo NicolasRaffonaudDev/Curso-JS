@@ -262,13 +262,34 @@ function renderCarrito(){
     TOTAL_SPAN.textContent = precioTotal;
 }
 
-function realizarCompra(){
+/* function realizarCompra(){
     alert(`Compra Finalizada ${TOTAL_SPAN.textContent}`);
     ELEMENTOS_CARRITO.length = 0
     renderCarrito()
-}
+} */
 
-document.getElementById('confirmar-compra').addEventListener('click', realizarCompra);
+document.getElementById('confirmar-compra').addEventListener('click', ()=>{
+    Swal.fire({
+        title: "Quieres confirmar definitivamente?",
+        text: "Si la respuesta es si, dale a confirmar",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Confirmar!",
+        cancelButtonText: "Cancelar!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Perfecto!",
+            text: "Su compra fue realizada!",
+            icon: "success"
+          });
+            ELEMENTOS_CARRITO.length = 0
+            renderCarrito()
+        }
+      });
+});
 
 CONTENEDOR_PRODUCTOS.addEventListener('click', function(evento){
     if(evento.target.classList.contains('boton__compra-carrito')){
