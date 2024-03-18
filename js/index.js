@@ -215,7 +215,7 @@ function renderProducto(){
         DIV.innerHTML = `
         <h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
-        <button class="boton__compra-carrito" id="btn__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
+        <button class="btn btn-primary boton__compra-carrito" id="btn__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
         `;
         CONTENEDOR_PRODUCTOS.appendChild(DIV);
     })
@@ -254,8 +254,8 @@ function renderCarrito(){
         LI.textContent = `${item.nombre} x ${item.cantidad} - $${item.precio * item.cantidad}`
         const BTN_ELIMINAR = document.createElement('button');
         //agregar toastify cuando se eliminar producto metiendo un class o id
-        BTN_ELIMINAR.
         BTN_ELIMINAR.textContent = 'Eliminar';
+        BTN_ELIMINAR.classList.add('btn', 'btn-danger','mx-3', 'my-2')
         BTN_ELIMINAR.addEventListener('click', ()=>eliminarDelCarrito(item.id));
         LI.appendChild(BTN_ELIMINAR);
         CONTENEDOR_ELEMENTOS_CARRITO.appendChild(LI);
@@ -304,7 +304,7 @@ CONTENEDOR_PRODUCTOS.addEventListener('click', function(evento){
 
 renderProducto()
 
-// USO DE TOASTIFY
+// USO DE TOASTIFY - FUNCIONA SOLO EN EL PRIMER ITEM, PEDIR AYUDA
 
 const TOASTIFY = document.getElementById('btn__compra-carrito');
 

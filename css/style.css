@@ -43,7 +43,7 @@ h1 {
 }
 
 .dark {
-    background-color: rgb(16, 16, 131);
+    background-color: rgb(138, 222, 233);
 }
 
 /* carrito de compras */
@@ -52,9 +52,11 @@ h1 {
     width: 50rem;
     margin: 1.25rem auto;
     padding: 1.25rem;
-    background-color: lightblue;
+    background-color: rgb(117, 224, 238);
     border-radius: .5rem;
+    box-shadow: 0 10px 20px black;
 }
+
 
 /* login */
 
