@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    /* background-image: url(../img/fondo-js3.png); */
+    background-image: url(../img/fondo-js3.png); 
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -54,4 +54,31 @@ h1 {
     padding: 1.25rem;
     background-color: lightblue;
     border-radius: .5rem;
+}
+
+/* login */
+
+
+.pantalla-login {
+    margin: 400px auto;
+}
+
+
+/* contacto */
+
+.container-contacto {
+    display: flex;
+    flex-direction: column;
+    margin: 200px auto;
+}
+
+.login-title {
+    margin: 40px auto;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: 100px auto;
 }
