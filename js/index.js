@@ -370,3 +370,16 @@ console.log(EJEMPLO_PASADO);
 
 // LIBRERIAS
 
+// CONTADOR CARRITO
+
+let cantidadItemsCarrito = 0;
+let carrito = JSON.parse(localStorage.getItem('carrito') || []);
+
+function actualizarIconoCarrito(){
+    const ICONO_CARRITO = document.getElementById('cantidad-items');
+    if(ICONO_CARRITO){
+        ICONO_CARRITO.textContent = cantidadItemsCarrito;
+    }
+}
+
+// minuto 1.18 clase 11
