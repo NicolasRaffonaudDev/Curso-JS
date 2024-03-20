@@ -195,12 +195,12 @@ formDeRegistro.addEventListener("submit", function (event) {
 //CARRITO DE COMPRAS PARA NUESTRO PROYECTO
 
 const PRODUCTOS = [
-    { id: 1, nombre: "ryzen-3-3200g", precio: 99000, img: "https://placehold.co/600x400" },
-    { id: 2, nombre: "ryzen-5-3600", precio: 149000, img: "https://placehold.co/600x400" },
-    { id: 3, nombre: "intelCore-i5-10400F", precio: 136900, img: "https://placehold.co/600x400" },
-    { id: 4, nombre: "intelCore-i7-12700F", precio: 381900, img: "https://placehold.co/600x400" },
-    { id: 5, nombre: "ryzen-7-7700", precio: 379000, img: "https://placehold.co/600x400" },
-    { id: 6, nombre: "ryzen-7-7700x", precio: 425000, img: "https://placehold.co/600x400" }
+    { id: 1, nombre: "ryzen-3-3200g", precio: 99000, img: "../img/productos/AMD_RYZEN_3_3200G_4.0GHz_Turbo_Radeon_Vega_8.jpg" },
+    { id: 2, nombre: "ryzen-5-3600", precio: 149000, img: "../img/productos/AMD_RYZEN_5_3600_4.2GHz_Turbo_AM4.jpg" },
+    { id: 3, nombre: "intelCore-i5-10400F", precio: 136900, img: "../img/productos/Intel_Core_i5_10400F_4.3GHz_Turbo_1200.jpg" },
+    { id: 4, nombre: "intelCore-i7-12700F", precio: 381900, img: "../img/productos/Intel_Core_i7_12700F_4.9GHz_Turbo_Socket_1700.jpg" },
+    { id: 5, nombre: "ryzen-7-7700", precio: 379000, img: "../img/productos/AMD_Ryzen_7_7700_5.3GHz_Turbo_AM5.jpg" },
+    { id: 6, nombre: "ryzen-7-7700x", precio: 425000, img: "../img/productos/AMD_Ryzen_7_7700X_5.4GHz_Turbo_AM5_No_incluye_Cooler.jpg" }
 ]
 
 const ELEMENTOS_CARRITO = [];
@@ -220,11 +220,11 @@ function renderProducto() {
         CONTENEDOR_PRODUCTOS.appendChild(IMAGEN) */
 
         DIV.innerHTML = `
-        <img src="${producto.img}">
-        <h3>${producto.nombre}</h3>
+        <img class="img__productos" src="${producto.img}">
+        <div><h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
         <button class="btn btn-primary boton__compra-carrito" id="btn__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
-        `;
+        </div>`;
         CONTENEDOR_PRODUCTOS.appendChild(DIV);
         
     })

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    background-image: url(../img/fondo-js3.png); 
+    background-image: url(../img/una-taza-de-javascript.png); 
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -47,16 +47,88 @@ h1 {
 }
 
 /* carrito de compras */
-
-.container-carritoDeCompras {
-    width: 50rem;
-    margin: 1.25rem auto;
-    padding: 1.25rem;
-    background-color: rgb(117, 224, 238);
-    border-radius: .5rem;
-    box-shadow: 0 10px 20px black;
+.carrito-compras {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.icon-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: visible;
+}
+
+.material-icons{
+    color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.container__contador {
+    position: relative;
+}
+
+.cantidad-items {
+    position: absolute;
+    color: white;
+    bottom: -4px;
+    right: -1px;
+}
+
+.container-tienda {
+    max-width: 50rem;
+    margin: 1.25rem auto;
+    padding: 1.25rem;
+    background-color: white;
+    border-radius: .5rem;
+    box-shadow: 0 10px 20px rgb(216, 213, 213);
+}
+
+button {
+    box-shadow: 0 10px 20px rgb(216, 213, 213);
+}
+
+.container__carrito {
+    background-color: aliceblue;
+    z-index: 1;
+    min-width: 400px;
+    max-height: 700px;
+    position: absolute;
+    right: 10px;
+    top: 70px;
+}
+
+.container__confirmacion-compra {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.producto {
+    max-width: 500px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.img__productos {
+    width: 150px;
+    height: 150px;
+    border-radius: 9px;
+}
 
 /* login */
 
@@ -69,13 +141,21 @@ h1 {
 /* contacto */
 
 .container-contacto {
+    padding: 10px 100px;
+    background-color: rgb(23, 70, 110);
     display: flex;
+    font-size: 1.6rem;
     flex-direction: column;
     margin: 200px auto;
+    text-align: center;
+    gap: 6px;
+    color: aliceblue;
+    box-shadow: 3px 8px 15px white;
 }
 
 .login-title {
     margin: 40px auto;
+    font-size: 4rem;
 }
 
 .form-login {
@@ -85,13 +165,3 @@ h1 {
     margin: 100px auto;
 }
 
-.icon-cart {
-    background-color: grey;
-    display: flex;
-}
-
-.material-icons{
-    color: aliceblue;
-    width: 40px;
-    height: 40px;
-}

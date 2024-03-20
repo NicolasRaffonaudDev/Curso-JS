@@ -18,10 +18,10 @@
       <div class="container-fluid">
         <a class="navbar-brand text-white fw-bold fs-4" href="../index.html">NGR Technical Computer</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <!-- <div class="collapse navbar-collapse" id="navbarNav">
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link text-warning" href="#">Tienda</a>
@@ -37,52 +37,58 @@
           </li>
         </ul>
       </div> -->
-    </div>
-    <div class="icon-cart" id="icon-cart">
-      <i class="material-icons">shopping_cart</i>
-      <span class="cantidad-items" id="cantidad-items">0</span>
-    </div>
+      </div>
+      <div class="icon-cart" id="icon-cart">
+        <div class="container__contador">
+          <i class="material-icons">shopping_cart</i>
+          <span class="cantidad-items" id="cantidad-items">0</span>
+        </div>
+        <div class="container__carrito">
+          <div id="carrito-tienda" class="carrito-compras">
+            <h2>Carro de compras</h2>
+            <ul id="elementos-carrito"></ul>
+          </div>
+          <div class="container__confirmacion-compra">
+            <p>Total de compra: <span id="totalCompra">0</span></p>
+            <button id="confirmar-compra" class="btn btn-success mb-2">Termine su compra</button>
+          </div>
+        </div>
+      </div>
+      </div>
     </nav>
   </header>
   <main>
     <section>
-      <div class="container-carritoDeCompras">
-        <h1>Elija sus productos:</h1>
+      <div class="container-tienda">
+        <h1 class="fs-1">Elija sus productos:</h1>
         <div id="productos-tienda"></div>
-        <div id="carrito-tienda" class="carrito-compras">
-          <h2>Carro de compras</h2>
-          <ul id="elementos-carrito"></ul>
-        </div>
-        <button id="confirmar-compra" class="btn btn-success mb-2">Termine su compra</button>
-        <p>Total de compra: <span id="totalCompra">0</span></p>
-      </div>
     </section>
   </main>
-  <main>
-    <button class="btn" id="btn">COMPRAR</button>
-    <button id="cambiarColor">Eliminar fondo</button>
-    <button id="btnNodo">NODO</button>
-    <button onclick="jsEnHTML()">hacer click con HTML</button>
+  <main class="text-center m-5">
+    <button class="btn btn-warning m-2" id="btn">COMPRAR</button>
+    <button class="btn btn-warning m-2" id="cambiarColor">Eliminar fondo</button>
+    <button class="btn btn-warning m-2" id="btnNodo">NODO</button>
+    <button class="btn btn-warning m-2" onclick="jsEnHTML()">hacer click con HTML</button>
 
     <nav>
-      <button id="menuBoton">MENU</button>
+      <button class="btn btn-warning m-2" id="menuBoton">MENU</button>
       <ul id="menu" class="navBar">
         <li><a href="#">inicio</a></li>
         <li><a href="#">inicio</a></li>
         <li><a href="#" id="despliegue">inicio</a></li>
       </ul>
     </nav>
-    <button id="modo">Cambiar color de</button>
+    <button class="btn btn-warning" id="modo">Cambiar color de</button>
   </main>
   <footer>
-    <form id="formDeRegistro">
+    <form class="form-login text-center fs-5 bg-warning text-white p-5" id="formDeRegistro">
       <label for="nombre">Ingrese su nombre:</label>
       <input type="text" id="nombre" required>
       <label for="email">Correo electronico:</label>
       <input type="email" id="email" required>
       <label for="mensaje">Deje su mensaje:</label>
       <input type="text" id="mensaje" required>
-      <button type="submit">Enviar</button>
+      <button class="btn btn-primary mx-auto my-3 w-25" type="submit">Enviar</button>
       <span id="emailError">Ingrese un correo valido</span>
     </form>
     <div class="container-fluid">
