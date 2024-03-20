@@ -17,10 +17,25 @@
     <nav class="navbar navbar-dark navbar-expand-md bg-dark p-3">
       <div class="container-fluid">
         <a class="navbar-brand text-white fw-bold fs-4" href="../index.html">NGR Technical Computer</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <div class="icon-cart" id="icon-cart">
+          <div class="container__contador" id="hidden__cart">
+            <i class="material-icons">shopping_cart</i>
+            <span class="cantidad-items" id="cantidad-items">0</span>
+          </div>
+          <div class="container__carrito" id="cart__visible">
+            <div id="carrito-tienda" class="carrito-compras">
+              <h2>Carro de compras</h2>
+              <ul id="elementos-carrito"></ul>
+            </div>
+            <div class="container__confirmacion-compra">
+              <p>Total de compra: <span id="totalCompra">0</span></p>
+              <button id="confirmar-compra" class="btn btn-success mb-2">Termine su compra</button>
+            </div>
+          </div>
+        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
           aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
+        </button> -->
         <!-- <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -38,21 +53,6 @@
         </ul>
       </div> -->
       </div>
-      <div class="icon-cart" id="icon-cart">
-        <div class="container__contador">
-          <i class="material-icons">shopping_cart</i>
-          <span class="cantidad-items" id="cantidad-items">0</span>
-        </div>
-        <div class="container__carrito">
-          <div id="carrito-tienda" class="carrito-compras">
-            <h2>Carro de compras</h2>
-            <ul id="elementos-carrito"></ul>
-          </div>
-          <div class="container__confirmacion-compra">
-            <p>Total de compra: <span id="totalCompra">0</span></p>
-            <button id="confirmar-compra" class="btn btn-success mb-2">Termine su compra</button>
-          </div>
-        </div>
       </div>
       </div>
     </nav>
@@ -60,7 +60,7 @@
   <main>
     <section>
       <div class="container-tienda">
-        <h1 class="fs-1">Elija sus productos:</h1>
+        <h1 class="fs-1 m-5">Elija sus productos:</h1>
         <div id="productos-tienda"></div>
     </section>
   </main>

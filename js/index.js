@@ -195,12 +195,12 @@ formDeRegistro.addEventListener("submit", function (event) {
 //CARRITO DE COMPRAS PARA NUESTRO PROYECTO
 
 const PRODUCTOS = [
-    { id: 1, nombre: "ryzen-3-3200g", precio: 99000, img: "../img/productos/AMD_RYZEN_3_3200G_4.0GHz_Turbo_Radeon_Vega_8.jpg" },
-    { id: 2, nombre: "ryzen-5-3600", precio: 149000, img: "../img/productos/AMD_RYZEN_5_3600_4.2GHz_Turbo_AM4.jpg" },
-    { id: 3, nombre: "intelCore-i5-10400F", precio: 136900, img: "../img/productos/Intel_Core_i5_10400F_4.3GHz_Turbo_1200.jpg" },
-    { id: 4, nombre: "intelCore-i7-12700F", precio: 381900, img: "../img/productos/Intel_Core_i7_12700F_4.9GHz_Turbo_Socket_1700.jpg" },
-    { id: 5, nombre: "ryzen-7-7700", precio: 379000, img: "../img/productos/AMD_Ryzen_7_7700_5.3GHz_Turbo_AM5.jpg" },
-    { id: 6, nombre: "ryzen-7-7700x", precio: 425000, img: "../img/productos/AMD_Ryzen_7_7700X_5.4GHz_Turbo_AM5_No_incluye_Cooler.jpg" }
+    { id: 1, nombre: "Procesador AMD RYZEN 3 3200G 4.0GHz Turbo + Radeon Vega 8 AM4 Wraith Stealth Cooler", precio: 99000, img: "../img/productos/AMD_RYZEN_3_3200G_4.0GHz_Turbo_Radeon_Vega_8.jpg" },
+    { id: 2, nombre: "Procesador AMD RYZEN 5 3600G 4.2GHz Turbo + Radeon Vega 8 AM4 Wraith Stealth Cooler", precio: 149000, img: "../img/productos/AMD_RYZEN_5_3600_4.2GHz_Turbo_AM4.jpg" },
+    { id: 3, nombre: "Procesador Intel Core i5 10400 4.3GHz Turbo Socket 1200 Comet Lake", precio: 169900, img: "../img/productos/Intel_Core_i5_10400F_4.3GHz_Turbo_1200.jpg" },
+    { id: 4, nombre: "Procesador Intel Core i7 12700F 4.9GHz Turbo Socket 1700 Alder Lake", precio: 381900, img: "../img/productos/Intel_Core_i7_12700F_4.9GHz_Turbo_Socket_1700.jpg" },
+    { id: 5, nombre: "Procesador AMD RYZEN 7 7700 5.3GHz Turbo AM5<", precio: 379000, img: "../img/productos/AMD_Ryzen_7_7700_5.3GHz_Turbo_AM5.jpg" },
+    { id: 6, nombre: "Procesador AMD RYZEN 7 7700X 5.4GHz Turbo AM5 - No incluye Cooler - C/Video", precio: 425000, img: "../img/productos/AMD_Ryzen_7_7700X_5.4GHz_Turbo_AM5_No_incluye_Cooler.jpg" }
 ]
 
 const ELEMENTOS_CARRITO = [];
@@ -328,6 +328,12 @@ TOASTIFY.addEventListener('click', () => {
             background: "green",
         },
     }).showToast()
+})
+
+const BTN_CART = document.getElementById("hidden__cart");
+const CART_VISIBLE = document.getElementById('cart__visible')
+BTN_CART.addEventListener('click', ()=>{
+    CART_VISIBLE.classList.toggle('hidden__cart');
 })
 
 // CARRITO FINALIZA
