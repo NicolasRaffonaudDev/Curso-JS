@@ -111,7 +111,7 @@ button {
     background-color: aliceblue;
     z-index: 1;
     display: none;
-    max-width: 250px;
+    min-width: 350px;
     max-height: 1000px;
     position: absolute;
     right: -15px;
