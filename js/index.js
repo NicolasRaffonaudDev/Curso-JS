@@ -192,7 +192,7 @@ formDeRegistro.addEventListener("submit", function (event) {
 });
 
 
-//CARRITO DE COMPRAS PARA NUESTRO PROYECTO
+//EMPIEZA EL RENDER DE CARDS DE PRODUCTOS
 
 const PRODUCTOS = [
     { id: 1, nombre: "Procesador AMD RYZEN 3 3200G 4.0GHz Turbo + Radeon Vega 8 AM4 Wraith Stealth Cooler", precio: 99000, img: "../img/productos/AMD_RYZEN_3_3200G_4.0GHz_Turbo_Radeon_Vega_8.jpg" },
@@ -231,6 +231,42 @@ function renderProducto() {
     })
 }
 
+function renderCarrito() {
+    CONTENEDOR_ELEMENTOS_CARRITO.innerHTML = '';
+    let precioTotal = 0;
+    ELEMENTOS_CARRITO.forEach(item => {
+        const LI = document.createElement('li');
+        LI.textContent = `${item.nombre} x ${item.cantidad} - $${item.precio * item.cantidad}`
+        const BTN_ELIMINAR = document.createElement('button');
+        //agregar toastify cuando se eliminar producto metiendo un class o id
+        BTN_ELIMINAR.textContent = 'Eliminar';
+        BTN_ELIMINAR.classList.add('btn', 'btn-danger', 'mx-3', 'my-2')
+        BTN_ELIMINAR.addEventListener('click', () => eliminarDelCarrito(item.id));
+        LI.appendChild(BTN_ELIMINAR);
+        CONTENEDOR_ELEMENTOS_CARRITO.appendChild(LI);
+        precioTotal = + item.precio * item.cantidad;
+    })
+    TOTAL_SPAN.textContent = precioTotal;
+}
+
+// CONTADOR CARRITO
+
+const BTN_CART = document.getElementById("hidden__cart");
+const CART_VISIBLE = document.getElementById('cart__visible')
+BTN_CART.addEventListener('click', () => {
+    CART_VISIBLE.classList.toggle('hidden__cart');
+})
+
+let cantidadItemsCarrito = 0;
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+function actualizarIconoCarrito() {
+    const ICONO_CARRITO = document.getElementById('cantidad-items');
+    if (ICONO_CARRITO) {
+        ICONO_CARRITO.textContent = cantidadItemsCarrito;
+    }
+}
+
 //AGREGAR PRODUCTOS AL CARRITO
 
 function sumarCarrito(idProducto) {
@@ -255,32 +291,7 @@ function eliminarDelCarrito(idProducto) {
         renderCarrito();
     }
 }
-
-function renderCarrito() {
-    CONTENEDOR_ELEMENTOS_CARRITO.innerHTML = '';
-    let precioTotal = 0;
-    ELEMENTOS_CARRITO.forEach(item => {
-        const LI = document.createElement('li');
-        LI.textContent = `${item.nombre} x ${item.cantidad} - $${item.precio * item.cantidad}`
-        const BTN_ELIMINAR = document.createElement('button');
-        //agregar toastify cuando se eliminar producto metiendo un class o id
-        BTN_ELIMINAR.textContent = 'Eliminar';
-        BTN_ELIMINAR.classList.add('btn', 'btn-danger', 'mx-3', 'my-2')
-        BTN_ELIMINAR.addEventListener('click', () => eliminarDelCarrito(item.id));
-        LI.appendChild(BTN_ELIMINAR);
-        CONTENEDOR_ELEMENTOS_CARRITO.appendChild(LI);
-        precioTotal = + item.precio * item.cantidad;
-    })
-    TOTAL_SPAN.textContent = precioTotal;
-}
-
-/* function realizarCompra(){
-    alert(`Compra Finalizada ${TOTAL_SPAN.textContent}`);
-    ELEMENTOS_CARRITO.length = 0
-    renderCarrito()
-} */
-
-// USO DE SWEET ALERT . LIBRERIAS
+// USO DE LIBRERIAS : SWEET ALERT
 
 document.getElementById('confirmar-compra').addEventListener('click', () => {
     Swal.fire({
@@ -305,18 +316,7 @@ document.getElementById('confirmar-compra').addEventListener('click', () => {
     });
 });
 
-// CONTADOR CARRITO
-
-let cantidadItemsCarrito = 0;
-let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-function actualizarIconoCarrito() {
-    const ICONO_CARRITO = document.getElementById('cantidad-items');
-    if (ICONO_CARRITO) {
-        ICONO_CARRITO.textContent = cantidadItemsCarrito;
-    }
-}
-
+// USO DE LIBRERIAS : TOASTIFY
 
 CONTENEDOR_PRODUCTOS.addEventListener('click', function (evento) {
     if (evento.target.classList.contains('boton__compra-carrito')) {
@@ -341,11 +341,6 @@ CONTENEDOR_PRODUCTOS.addEventListener('click', function (evento) {
 renderProducto()
 
 
-const BTN_CART = document.getElementById("hidden__cart");
-const CART_VISIBLE = document.getElementById('cart__visible')
-BTN_CART.addEventListener('click', () => {
-    CART_VISIBLE.classList.toggle('hidden__cart');
-})
 
 // CARRITO FINALIZA
 
@@ -395,4 +390,36 @@ console.log(EJEMPLO);
 const EJEMPLO_PASADO = JSON.parse(EJEMPLO);
 console.log(EJEMPLO_PASADO);
 
-// LIBRERIAS
+// APLICACION DE ASINCRONIA
+
+/* const TITULO_PRINCIPAL = "EL MEJOR LUGAR PARA ARMAR O REPARAR TU PC";
+const TITULO_PROGRESIVO = document.getElementById('titulo_progresivo');
+let indice = 0;
+
+function armarTitulo(){
+    TITULO_PROGRESIVO.textContent += TITULO_PRINCIPAL[indice];
+    indice++;
+    if(indice < TITULO_PRINCIPAL.length){
+        setTimeout(armarTitulo,100);
+    }
+}
+
+setTimeout(armarTitulo,1000); 
+
+//
+/* 
+const mensaje = "malena";
+const ELEMENTO_DOS = document.getElementById('elementodos');
+let indice = 0;
+
+
+function mostrarLetra(){
+    ELEMENTO_DOS.textContent += mensaje[indice];
+    indice++;
+    if(indice < mensaje.length){
+        setTimeout(mostrarLetra,200);
+    }
+}
+
+
+setTimeout(mostrarLetra,3000); */
