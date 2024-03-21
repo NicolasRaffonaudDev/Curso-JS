@@ -220,13 +220,14 @@ function renderProducto() {
         CONTENEDOR_PRODUCTOS.appendChild(IMAGEN) */
 
         DIV.innerHTML = `
-        <img class="img__productos" src="${producto.img}">
-        <div><h3>${producto.nombre}</h3>
+        <img class="img__productos" src="${producto.img}" alt="${producto.nombre}">
+        <div>
+        <h3>${producto.nombre}</h3>
         <p>$${producto.precio}</p>
         <button class="btn btn-primary boton__compra-carrito" id="btn__compra-carrito" data-id="${producto.id}">agregar al carrito</button>      
         </div>`;
         CONTENEDOR_PRODUCTOS.appendChild(DIV);
-        
+
     })
 }
 
@@ -304,35 +305,45 @@ document.getElementById('confirmar-compra').addEventListener('click', () => {
     });
 });
 
+// CONTADOR CARRITO
+
+let cantidadItemsCarrito = 0;
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+function actualizarIconoCarrito() {
+    const ICONO_CARRITO = document.getElementById('cantidad-items');
+    if (ICONO_CARRITO) {
+        ICONO_CARRITO.textContent = cantidadItemsCarrito;
+    }
+}
+
+
 CONTENEDOR_PRODUCTOS.addEventListener('click', function (evento) {
     if (evento.target.classList.contains('boton__compra-carrito')) {
+        // USO DE TOASTIFY
+        Toastify({
+            text: "Producto agregado al carrito",
+            duration: 2000,
+            position: "right",
+            gravity: "top",
+            style: {
+                background: "green",
+            },
+        }).showToast()
         const ID_PRODUCTO = parseInt(evento.target.getAttribute('data-id'));
-        
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        cantidadItemsCarrito++;
+        actualizarIconoCarrito();
         sumarCarrito(ID_PRODUCTO);
     }
 })
 
 renderProducto()
 
-// USO DE TOASTIFY - FUNCIONA SOLO EN EL PRIMER ITEM, PEDIR AYUDA
-
-const TOASTIFY = document.getElementById('btn__compra-carrito');
-
-TOASTIFY.addEventListener('click', () => {
-    Toastify({
-        text: "Producto agregado al carrito",
-        duration: 2000,
-        position: "right",
-        gravity: "top",
-        style: {
-            background: "green",
-        },
-    }).showToast()
-})
 
 const BTN_CART = document.getElementById("hidden__cart");
 const CART_VISIBLE = document.getElementById('cart__visible')
-BTN_CART.addEventListener('click', ()=>{
+BTN_CART.addEventListener('click', () => {
     CART_VISIBLE.classList.toggle('hidden__cart');
 })
 
@@ -385,17 +396,3 @@ const EJEMPLO_PASADO = JSON.parse(EJEMPLO);
 console.log(EJEMPLO_PASADO);
 
 // LIBRERIAS
-
-// CONTADOR CARRITO
-
-let cantidadItemsCarrito = 0;
-let carrito = JSON.parse(localStorage.getItem('carrito') || []);
-
-function actualizarIconoCarrito() {
-    const ICONO_CARRITO = document.getElementById('cantidad-items');
-    if (ICONO_CARRITO) {
-        ICONO_CARRITO.textContent = cantidadItemsCarrito;
-    }
-}
-
-// minuto 1.18 clase 11 
