@@ -1,3 +1,23 @@
+
+
+// APLICACION DE ASINCRONIA
+
+const TITULO_PRINCIPAL = "EL MEJOR LUGAR PARA ARMAR O REPARAR TU PC";
+const TITULO_PROGRESIVO = document.getElementById('titulo_progresivo');
+let indice = 0;
+
+function armarTitulo() {
+    TITULO_PROGRESIVO.textContent += TITULO_PRINCIPAL[indice];
+    indice++;
+    if (indice < TITULO_PRINCIPAL.length) {
+        setTimeout(armarTitulo, 100);
+    }
+}
+
+setTimeout(armarTitulo, 1000);
+
+
+//PRIMERA PRE ENTREGA
 /* bucle para sumar componentes comprados */
 
 let componentes = 1; //parseInt(prompt("Ingrese la cantidad de componentes que quiere comprar para su computadora"));
@@ -390,36 +410,4 @@ console.log(EJEMPLO);
 const EJEMPLO_PASADO = JSON.parse(EJEMPLO);
 console.log(EJEMPLO_PASADO);
 
-// APLICACION DE ASINCRONIA
-
-/* const TITULO_PRINCIPAL = "EL MEJOR LUGAR PARA ARMAR O REPARAR TU PC";
-const TITULO_PROGRESIVO = document.getElementById('titulo_progresivo');
-let indice = 0;
-
-function armarTitulo(){
-    TITULO_PROGRESIVO.textContent += TITULO_PRINCIPAL[indice];
-    indice++;
-    if(indice < TITULO_PRINCIPAL.length){
-        setTimeout(armarTitulo,100);
-    }
-}
-
-setTimeout(armarTitulo,1000); 
-
 //
-/* 
-const mensaje = "malena";
-const ELEMENTO_DOS = document.getElementById('elementodos');
-let indice = 0;
-
-
-function mostrarLetra(){
-    ELEMENTO_DOS.textContent += mensaje[indice];
-    indice++;
-    if(indice < mensaje.length){
-        setTimeout(mostrarLetra,200);
-    }
-}
-
-
-setTimeout(mostrarLetra,3000); */
