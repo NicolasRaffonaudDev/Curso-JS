@@ -82,7 +82,9 @@ h1 {
 }
 
 .cantidad-items {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 20px;
     height: 20px;
@@ -91,6 +93,7 @@ h1 {
     background-color: aliceblue;
     bottom: -2px;
     right: 6px;
+    border: solid 1px black;
 }
 
 .container-tienda {
