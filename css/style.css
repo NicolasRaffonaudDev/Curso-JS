@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    background-image: url(../img/una-taza-de-javascript.png); 
+    background-image: url(../img/fondo_3.webp); 
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -10,6 +10,11 @@ body {
 h1 {
     text-align: center;
     font-size: 4rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
 }
 
 .carousel-inner {
